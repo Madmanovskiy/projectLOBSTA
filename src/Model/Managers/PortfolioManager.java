@@ -8,6 +8,8 @@ import Model.BasicClasses.UserOrder;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//устанавливать позу в зависимости от наличий сделок в deals
 public class PortfolioManager implements Manager {
 
     private static PortfolioManager instance;
@@ -21,7 +23,6 @@ public class PortfolioManager implements Manager {
     private BookOfTransactions transactions = BookOfTransactions.getInstance();
 
     private PortfolioManager() {
-        withoutResultMoney = startMoney;
     }
 
     public double getStartMoney() {
@@ -58,6 +59,8 @@ public class PortfolioManager implements Manager {
         if (positions.isEmpty()) return 0;
         return assumeResult;
     }
+
+
 
     public static synchronized PortfolioManager getInstance() {
         if (instance == null) {
