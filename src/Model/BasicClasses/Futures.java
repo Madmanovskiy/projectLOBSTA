@@ -5,21 +5,21 @@ public class Futures {
 
     private final double priceStep;
     private final double priceValueStep;
-    private final int stockExchangesCommision;
+    private final int stockExchangeCommision;
     private String name;
     private String ticker;
     private double guaranteeAmountLower;
     private double guaranteeAmountGreater;
     private StockExchangeGlass glass;
 
-    public Futures(String name, String ticker, double priceStep, double priceValueStep, int guaranteeAmountLower, int guaranteeAmountGreater, int stockExchangesCommision, StockExchangeGlass glass) {
+    public Futures(String name, String ticker, double priceStep, double priceValueStep, int guaranteeAmountLower, int guaranteeAmountGreater, int stockExchangeCommision, StockExchangeGlass glass) {
         this.name = name;
         this.ticker = ticker;
         this.priceStep = priceStep;
         this.priceValueStep = priceValueStep;
         this.guaranteeAmountLower = guaranteeAmountLower;
         this.guaranteeAmountGreater = guaranteeAmountGreater;
-        this.stockExchangesCommision = stockExchangesCommision;
+        this.stockExchangeCommision = stockExchangeCommision;
         this.glass = glass;
     }
 
@@ -47,8 +47,8 @@ public class Futures {
         return guaranteeAmountGreater;
     }
 
-    public int getStockExchangesCommision() {
-        return stockExchangesCommision;
+    public int getStockExchangeCommision() {
+        return stockExchangeCommision;
     }
 
     public StockExchangeGlass getGlass() {

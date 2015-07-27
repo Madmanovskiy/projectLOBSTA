@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookOfTransactions {
+
+    private static BookOfTransactions instance;
     private List<UserOrder> orders = new ArrayList<>();
     private List<UserOrder> deals = new ArrayList<>();
 
@@ -21,10 +23,16 @@ public class BookOfTransactions {
     }
 
     public void updateListsData() {
-        for(UserOrder order : orders){
-            if(order.isExecuted()){
+        for (UserOrder order : orders){
+            if (order.isExecuted()) {
                 deals.add(order);
             }
         }
     }
+
+    public static synchronized BookOfTransactions getInstance() {
+        if (instance == null) instance = new BookOfTransactions();
+        return instance;
+    }
+
 }
