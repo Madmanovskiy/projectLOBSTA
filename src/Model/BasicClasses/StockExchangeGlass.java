@@ -7,10 +7,10 @@ public class StockExchangeGlass {
     private MiddleOfGlass bid;
     private MiddleOfGlass offer;
 
-    public StockExchangeGlass(String ticker, MiddleOfGlass bid, MiddleOfGlass offer) {
-        this.ticker = ticker;
+    public StockExchangeGlass(MiddleOfGlass bid, MiddleOfGlass offer) {
         this.bid = bid;
         this.offer = offer;
+        ticker = bid.getTicker();
     }
 
     public String getTicker() {
@@ -31,5 +31,13 @@ public class StockExchangeGlass {
 
     public double getBestOfferQuantity(){
         return offer.getBestQuantity();
+    }
+
+    public void setBid(MiddleOfGlass bid) {
+        this.bid = bid;
+    }
+
+    public void setOffer(MiddleOfGlass offer) {
+        this.offer = offer;
     }
 }

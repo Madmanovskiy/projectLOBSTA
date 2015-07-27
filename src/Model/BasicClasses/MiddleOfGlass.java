@@ -2,12 +2,16 @@ package Model.BasicClasses;
 
 
 public class MiddleOfGlass {
+    private String ticker;
     private double bestPrice;
     private double bestQuantity;
 
-    public MiddleOfGlass(double bestPrice, double bestQuantity) {
-        this.bestPrice = bestPrice;
-        this.bestQuantity = bestQuantity;
+    public MiddleOfGlass(String name) {
+        this.ticker = name;
+    }
+
+    public String getTicker() {
+        return ticker;
     }
 
     public double getBestPrice() {
@@ -17,5 +21,14 @@ public class MiddleOfGlass {
     public double getBestQuantity() {
         return bestQuantity;
     }
+
+    public void setBestPrice(double bestPrice) {
+        this.bestPrice = bestPrice;
+    }
+
+    public void setBestQuantity(double bestQuantity) {
+        this.bestQuantity = bestQuantity;
+    }
+
 }
 
