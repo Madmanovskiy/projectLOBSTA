@@ -5,8 +5,9 @@ public class Position {
     private static int idPosition;
     private Futures futures;
     private int countOfContracts;
-    double priceEnter;
-    double priceExit;
+    private double priceEnter;
+    private double priceExit;
+    private StatePosition statePosition;
 
     public Position(Futures futures, int idPosition, double priceEnter) {
         idPosition++;
@@ -43,7 +44,15 @@ public class Position {
         this.priceExit = priceExit;
     }
 
-    public double getPositionSum() {
+    public StatePosition getStatePosition() {
+        return statePosition;
+    }
+
+    public void setStatePosition(StatePosition statePosition) {
+        this.statePosition = statePosition;
+    }
+
+    public double calculatePositionSum() {
         return ((double) countOfContracts) * futures.getGuaranteeAmountLower();
     }
 
