@@ -10,8 +10,8 @@ public class SingletonPortfolioManager implements Manager {
 
     private static SingletonPortfolioManager instance;
     private double money;
-    private double availableMoney;
     private double blockedMoney;
+    private double availableMoney;
     private double assumeResult;
     private List<Position> positions = new ArrayList<>();
 
@@ -26,19 +26,14 @@ public class SingletonPortfolioManager implements Manager {
         this.money = money;
     }
 
-    public double getAvailableMoney() {
-        availableMoney = money - getBlockedMoney();
-        return availableMoney;
-    }
-
     public double getBlockedMoney() {
         if (positions.isEmpty()) return 0;
-
-        for (Position pos : positions){
-            blockedMoney += pos.getPositionSum();
-        }
-
         return blockedMoney;
+    }
+
+    public double getAvailableMoney() {
+
+        return availableMoney;
     }
 
 
@@ -48,10 +43,6 @@ public class SingletonPortfolioManager implements Manager {
 
     public double getAssumeResult() {
         if (positions.isEmpty()) return 0;
-
-        for (Position pos : positions){
-            assumeResult+=pos.calculateCurrentResult();
-        }
         return assumeResult;
     }
 
@@ -64,7 +55,18 @@ public class SingletonPortfolioManager implements Manager {
 
     @Override
     public void updateInformation() {
+        //update blockedMoney
+        for (Position pos : positions){
+            blockedMoney += pos.getPositionSum();
+        }
 
+        //update availableMoney
+        availableMoney = money - blockedMoney;
+
+        //update assumeResult
+        for (Position pos : positions){
+            assumeResult += pos.calculateCurrentResult();
+        }
     }
 
 }
