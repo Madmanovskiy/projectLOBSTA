@@ -6,16 +6,14 @@ public class Futures {
     private final double priceStep;
     private final double priceValueStep;
     private final int stockExchangesCommision;
-    private final int countOfDecimalPlacesInPrice;
     private String name;
     private String ticker;
-    private int guaranteeAmountLower;
-    private int guaranteeAmountGreater;
+    private double guaranteeAmountLower;
+    private double guaranteeAmountGreater;
 
-    public Futures(String name, String ticker, int countOfDecimalPlacesInPrice, double priceStep, double priceValueStep, int guaranteeAmountLower, int guaranteeAmountGreater, int stockExchangesCommision) {
+    public Futures(String name, String ticker, double priceStep, double priceValueStep, int guaranteeAmountLower, int guaranteeAmountGreater, int stockExchangesCommision) {
         this.name = name;
         this.ticker = ticker;
-        this.countOfDecimalPlacesInPrice = countOfDecimalPlacesInPrice;
         this.priceStep = priceStep;
         this.priceValueStep = priceValueStep;
         this.guaranteeAmountLower = guaranteeAmountLower;
@@ -39,11 +37,11 @@ public class Futures {
         return priceValueStep;
     }
 
-    public int getGuaranteeAmountLower() {
+    public double getGuaranteeAmountLower() {
         return guaranteeAmountLower;
     }
 
-    public int getGuaranteeAmountGreater() {
+    public double getGuaranteeAmountGreater() {
         return guaranteeAmountGreater;
     }
 
