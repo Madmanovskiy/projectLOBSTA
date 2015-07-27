@@ -10,6 +10,7 @@ public class UserOrder {
     private StateOrder state;
     private int departedContract;
     private int remainingQuantity;
+    private double summ;
 
     public UserOrder(Futures instrument, double price, int quantity, TypeOrder type) {
         this.instrument = instrument;
@@ -45,30 +46,20 @@ public class UserOrder {
         return remainingQuantity;
     }
 
+    public double orderSum() {
+        return ((double) quantity) * price;
+    }
+
     public void setState(StateOrder state) {
         this.state = state;
     }
 
     public boolean isExecuted() {
-        return quantity == (departedContract + remainingQuantity) ? true : false;
+        return quantity == (departedContract + remainingQuantity);
     }
 
     public void updateQuantityInformation(int departedContract) {
         this.departedContract = departedContract;
         remainingQuantity = quantity - departedContract;
-    }
-
-    public enum TypeOrder {
-        BUY_LIMIT,
-        SELL_LIMIT,
-        BUY_MARKET,
-        SELL_MARKET
-    }
-
-    public enum StateOrder {
-        ACTIVE,
-        CANCELED,
-        EXECUTED_IN_PART,
-        EXECUTED
     }
 }
