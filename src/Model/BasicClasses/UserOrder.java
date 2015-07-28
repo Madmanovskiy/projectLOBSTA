@@ -4,13 +4,12 @@ package Model.BasicClasses;
 public class UserOrder {
 
     private Futures instrument;
-    private double price;
-    private int quantity;
+    private final double price;
+    private final int quantity;
     private TypeOrder type;
     private StateOrder state;
-    private int departedContract;
+    private int departedQuantity;
     private int remainingQuantity;
-    private double summ;
 
     public UserOrder(Futures instrument, double price, int quantity, TypeOrder type) {
         this.instrument = instrument;
@@ -18,7 +17,7 @@ public class UserOrder {
         this.quantity = quantity;
         this.type = type;
         state = StateOrder.ACTIVE;
-        departedContract = 0;
+        departedQuantity = 0;
         remainingQuantity = 0;
     }
 
@@ -42,24 +41,27 @@ public class UserOrder {
         return state;
     }
 
-    public int getRemainingQuantity() {
-        return remainingQuantity;
-    }
-
-    public double orderSum() {
-        return ((double) quantity) * price;
-    }
-
     public void setState(StateOrder state) {
         this.state = state;
     }
 
-    public boolean isExecuted() {
-        return quantity == (departedContract + remainingQuantity);
+    public int getRemainingQuantity() {
+        return remainingQuantity;
     }
 
-    public void updateQuantityInformation(int departedContract) {
-        this.departedContract = departedContract;
-        remainingQuantity = quantity - departedContract;
+    public void setDepartedQuantity(int departedQuantity) {
+        this.departedQuantity = departedQuantity;
+    }
+
+    public void calculateRemainingConatract(){
+        remainingQuantity = quantity - departedQuantity;
+    }
+
+    public double orderVolume() {
+        return ((double) quantity) * price;
+    }
+
+    public boolean isExecuted() {
+        return quantity == (departedQuantity + remainingQuantity);
     }
 }
