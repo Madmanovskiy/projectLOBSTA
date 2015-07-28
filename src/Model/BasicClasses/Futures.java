@@ -3,11 +3,11 @@ package Model.BasicClasses;
 
 public class Futures {
 
+    private final String name;
+    private final String ticker;
     private final double priceStep;
     private final double priceValueStep;
     private final int stockExchangeCommision;
-    private String name;
-    private String ticker;
     private double guaranteeAmountLower;
     private double guaranteeAmountGreater;
     private StockExchangeGlass glass;

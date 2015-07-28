@@ -2,7 +2,7 @@ package Model.BasicClasses;
 
 
 public class MiddleOfGlass {
-    private String ticker;
+    private final String ticker;
     private double bestPrice;
     private double bestQuantity;
 
