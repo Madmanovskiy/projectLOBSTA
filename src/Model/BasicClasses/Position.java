@@ -9,11 +9,12 @@ public class Position {
     private double priceExit;
     private StatePosition statePosition;
 
-    public Position(Futures futures, int idPosition, double priceEnter) {
+    public Position(Futures futures, int idPosition, double priceEnter, StatePosition statePosition) {
         idPosition++;
         this.futures = futures;
         this.idPosition = idPosition;
         this.priceEnter = priceEnter;
+        this.statePosition = statePosition;
     }
 
     public int getCountOfContracts() {
