@@ -6,7 +6,6 @@ import java.util.List;
 
 public class BookOfTransactions {
 
-    private static BookOfTransactions instance;
     private List<UserOrder> orders = new ArrayList<>();
     private List<UserOrder> deals = new ArrayList<>();
 
@@ -22,17 +21,18 @@ public class BookOfTransactions {
         orders.add(order);
     }
 
-    //return the count of executed orders
-    public int addExecutedOrderToDealsList() {
-        int counter = 0;
-        for (UserOrder order : orders){
-            if (order.isExecuted()) {
-                deals.add(order);
-                counter++;
-            }
-        }
-        return counter;
+    public void addDeal(UserOrder order) {
+        deals.add(order);
     }
+
+    public void removeOrder(UserOrder order) {
+        orders.remove(order);
+    }
+
+    public void removeDeal(UserOrder order) {
+        deals.remove(order);
+    }
+
 
     //IO to\from file, hasn't realization yet
     public void writeOrdersToFile(){
@@ -50,12 +50,4 @@ public class BookOfTransactions {
     public void readDealsFromFile(){
 
     }
-
-
-
-    public static synchronized BookOfTransactions getInstance() {
-        if (instance == null) instance = new BookOfTransactions();
-        return instance;
-    }
-
 }
