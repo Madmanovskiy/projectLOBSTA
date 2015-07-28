@@ -25,11 +25,6 @@ public class BookOfTransactions {
         deals.add(order);
     }
 
-    public void removeOrder(UserOrder order) {
-        orders.remove(order);
-    }
-
-
 
     //IO to\from file, hasn't realization yet
     public void writeOrdersToFile(){
