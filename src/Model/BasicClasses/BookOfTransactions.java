@@ -39,11 +39,11 @@ public class BookOfTransactions {
 
     }
 
-    public void writeDealsToFile(){
+    public void readOrdersFromFile(){
 
     }
 
-    public void readOrdersFromFile(){
+    public void writeDealsToFile(){
 
     }
 
