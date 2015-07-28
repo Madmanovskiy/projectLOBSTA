@@ -3,7 +3,7 @@ package Model.BasicClasses;
 
 public class UserOrder {
 
-    private Futures instrument;
+    private Futures futures;
     private final double price;
     private final int quantity;
     private TypeOrder type;
@@ -11,8 +11,8 @@ public class UserOrder {
     private int departedQuantity;
     private int remainingQuantity;
 
-    public UserOrder(Futures instrument, double price, int quantity, TypeOrder type) {
-        this.instrument = instrument;
+    public UserOrder(Futures futures, double price, int quantity, TypeOrder type) {
+        this.futures = futures;
         this.price = price;
         this.quantity = quantity;
         this.type = type;
@@ -21,8 +21,8 @@ public class UserOrder {
         remainingQuantity = 0;
     }
 
-    public Futures getInstrument() {
-        return instrument;
+    public Futures getFutures() {
+        return futures;
     }
 
     public double getPrice() {
@@ -53,8 +53,12 @@ public class UserOrder {
         this.departedQuantity = departedQuantity;
     }
 
-    public void calculateRemainingConatract(){
+    public void CalculateRemainingConatract(){
         remainingQuantity = quantity - departedQuantity;
+    }
+
+    public double getValueOfOrder(){
+        return ((double) quantity) * futures.getGuaranteeAmountLower();
     }
 
     public boolean isExecuted() {
