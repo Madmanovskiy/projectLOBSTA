@@ -2,11 +2,12 @@ package Model.BasicClasses;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BookOfTransactions {
 
-    private List<UserOrder> orders = new ArrayList<>();
+    private List<UserOrder> orders = new LinkedList<>();
     private List<UserOrder> deals = new ArrayList<>();
 
     public List<UserOrder> getOrders() {
@@ -27,19 +28,19 @@ public class BookOfTransactions {
 
 
     //IO to\from file, hasn't realization yet
-    public void writeOrdersToFile(){
+    public void writeOrdersToFile() {
 
     }
 
-    public void readOrdersFromFile(){
+    public void readOrdersFromFile() {
 
     }
 
-    public void writeDealsToFile(){
+    public void writeDealsToFile() {
 
     }
 
-    public void readDealsFromFile(){
+    public void readDealsFromFile() {
 
     }
 }
