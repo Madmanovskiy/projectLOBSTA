@@ -57,6 +57,10 @@ public class Futures {
         return brokersCommission;
     }
 
+    public double calculateSumCommission(){
+        return brokersCommission + stockExchangeCommission;
+    }
+
     public StockExchangeGlass getGlass() {
         return glass;
     }
