@@ -57,10 +57,6 @@ public class UserOrder {
         remainingQuantity = quantity - departedQuantity;
     }
 
-    public double orderVolume() {
-        return ((double) quantity) * price;
-    }
-
     public boolean isExecuted() {
         return quantity == (departedQuantity + remainingQuantity);
     }
