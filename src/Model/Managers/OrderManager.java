@@ -62,6 +62,8 @@ public class OrderManager implements Manager {
 
     @Override
     public void updateInformation() {
-
+        removeCancelledOrders();
+        addChangesToExecutedInPartOrders();
+        transformExecutedOrderToDeal();
     }
 }
