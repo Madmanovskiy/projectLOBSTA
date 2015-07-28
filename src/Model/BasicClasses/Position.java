@@ -53,16 +53,16 @@ public class Position {
         this.statePosition = statePosition;
     }
 
-    public double calculatePositionSum() {
+    public double getPositionSum() {
         return ((double) countOfContracts) * futures.getGuaranteeAmountLower();
     }
 
-    public double calculateCurrentResult() {
+    public double getCurrentResult() {
         double currentPrice = countOfContracts > 0 ? futures.getGlass().getBestBidPrice() : futures.getGlass().getBestOfferPrice();
         return countOfContracts > 0 ? currentPrice - priceEnter : priceEnter - currentPrice;
     }
 
-    public double calculateFinalResult() {
+    public double getFinalResult() {
         return countOfContracts > 0 ? priceExit - priceEnter : priceEnter - priceExit;
     }
 }
