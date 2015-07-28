@@ -10,7 +10,8 @@ public class PositionManager implements Manager {
 
     private List<Position> positions = new ArrayList<>();
     private List<Position> tempPositionsList = new ArrayList<>();
-    private double profitLoss;
+    private double currentProfitLoss;
+    private double realizedProfitLoss;
     private double commissionSum;
 
     public double getCommissionSum() {
@@ -21,24 +22,40 @@ public class PositionManager implements Manager {
         return positions;
     }
 
-    public double getProfitLoss() {
-        return profitLoss;
+    public double getCurrentProfitLoss() {
+        return currentProfitLoss;
+    }
+
+    public double getRealizedProfitLoss() {
+        return realizedProfitLoss;
     }
 
     public boolean addPosition(Position p) {
         return positions.add(p);
     }
 
-    private void calculateProfitSum() {
+    private void calculateCurrentProfitSum() {
         if (positions.isEmpty()) {
             return;
         }
+        currentProfitLoss = 0;
         for (Position p : positions){
-            profitLoss += p.calculateCurrentResult();
+            if (p.getStatePosition() != StatePosition.IN_CASH) currentProfitLoss += p.getCurrentResult();
+        }
+    }
+
+    private void calculateRealizedProfitSum() {
+        if (positions.isEmpty()) {
+            return;
+        }
+        realizedProfitLoss = 0;
+        for (Position p : positions){
+            if (p.getStatePosition() == StatePosition.IN_CASH) currentProfitLoss += p.getRealizedResult();
         }
     }
 
     private void calculateCommissionSum() {
+        commissionSum = 0;
         if (positions.isEmpty()) {
             return;
         }
@@ -63,7 +80,8 @@ public class PositionManager implements Manager {
     @Override
     public void updateInformation() {
         calculateCommissionSum();
-        calculateProfitSum();
+        calculateCurrentProfitSum();
+        calculateRealizedProfitSum();
         removeClosedPositions();
     }
 }

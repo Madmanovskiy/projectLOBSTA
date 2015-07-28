@@ -54,9 +54,12 @@ public class OrderManager implements Manager {
 
 
     private void transformExecutedOrderToDeal() {
+        tempList.clear();
         for (UserOrder order : transactions.getOrders()){
-            if (order.isExecuted()) transactions.addDeal(order);
+            if (order.isExecuted()) tempList.add(order);
         }
+        transactions.addAllDeal(tempList);
+        transactions.getOrders().removeAll(tempList);
     }
 
 
