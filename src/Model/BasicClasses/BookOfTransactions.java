@@ -29,9 +29,6 @@ public class BookOfTransactions {
         orders.remove(order);
     }
 
-    public void removeDeal(UserOrder order) {
-        deals.remove(order);
-    }
 
 
     //IO to\from file, hasn't realization yet
