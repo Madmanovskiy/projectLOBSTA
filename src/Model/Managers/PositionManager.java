@@ -9,8 +9,8 @@ import java.util.List;
 public class PositionManager implements Manager {
 
     private List<Position> positions = new ArrayList<>();
-    private List<Position> tempList = new ArrayList<>();
-    private double profit;
+    private List<Position> tempPositionsList = new ArrayList<>();
+    private double profitLoss;
     private double commissionSum;
 
     public double getCommissionSum() {
@@ -21,8 +21,8 @@ public class PositionManager implements Manager {
         return positions;
     }
 
-    public double getProfit() {
-        return profit;
+    public double getProfitLoss() {
+        return profitLoss;
     }
 
     public boolean addPosition(Position p) {
@@ -34,7 +34,7 @@ public class PositionManager implements Manager {
             return;
         }
         for (Position p : positions){
-            profit += p.calculateCurrentResult();
+            profitLoss += p.calculateCurrentResult();
         }
     }
 
@@ -53,10 +53,10 @@ public class PositionManager implements Manager {
             return;
         }
         for (Position p : positions){
-            if (p.getStatePosition() == StatePosition.IN_CASH) tempList.add(p);
+            if (p.getStatePosition() == StatePosition.IN_CASH) tempPositionsList.add(p);
         }
-        positions.removeAll(tempList);
-        tempList.clear();
+        positions.removeAll(tempPositionsList);
+        tempPositionsList.clear();
 
     }
 
