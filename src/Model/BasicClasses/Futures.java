@@ -37,7 +37,7 @@ public class Futures {
         return priceStep;
     }
 
-    public double getPriceValueStep() {
+    public double getPriceStepValue() {
         return priceValueStep;
     }
 
