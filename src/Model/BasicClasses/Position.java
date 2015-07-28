@@ -62,7 +62,7 @@ public class Position {
         return countOfContracts > 0 ? currentPrice - priceEnter : priceEnter - currentPrice;
     }
 
-    public double getFinalResult() {
+    public double getRealizedResult() {
         return countOfContracts > 0 ? priceExit - priceEnter : priceEnter - priceExit;
     }
 }
