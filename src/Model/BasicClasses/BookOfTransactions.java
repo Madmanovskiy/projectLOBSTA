@@ -26,6 +26,10 @@ public class BookOfTransactions {
         deals.add(order);
     }
 
+    public void addAllDeal(List<UserOrder> orders) {
+        deals.addAll(orders);
+    }
+
 
     //IO to\from file, hasn't realization yet
     public void writeOrdersToFile() {
