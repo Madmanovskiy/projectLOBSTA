@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="alphamaskdemo">
+    <CLASSES />
+    <JAVADOC>
+      <root url="file://$USER_HOME$/Desktop/jna/www/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/alphamaskdemo" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/balloonmanagerdemo" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/balloontips" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/dnddemo" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/monitordemo/src" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/msoffice/src" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/native_window_msg/src" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/ntservice/src" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/platform/src" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/platform/test" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/shapedwindowdemo" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/w32keyhook" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/w32printing/src" />
+      <root url="file://$USER_HOME$/Desktop/jna/contrib/x11/src" />
+      <root url="file://$USER_HOME$/Desktop/jna/src" />
+      <root url="file://$USER_HOME$/Desktop/jna/test" />
+    </SOURCES>
+  </library>
+</component>
