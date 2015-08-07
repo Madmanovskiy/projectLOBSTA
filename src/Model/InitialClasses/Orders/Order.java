@@ -19,7 +19,7 @@ public class Order {
     private final String strategy;
     private final String strategyId;
 
-    public Order(OrderBuilder builder) {
+    protected Order(OrderBuilder builder) {
         this.orderId = builder.orderId;
         this.account = builder.account;
         this.command = builder.command;
@@ -36,7 +36,7 @@ public class Order {
         OrderManager.getInstance().addOrderToMap(orderId, this);
     }
 
-    public static class OrderBuilder {
+    protected static class OrderBuilder {
         private final int orderId;
         private final String command;
         private String account = "";
@@ -51,7 +51,7 @@ public class Order {
         private String strategy = "";
         private String strategyId = "";
 
-        public OrderBuilder(int orderId, Command command) {
+        protected OrderBuilder(int orderId, Command command) {
             if (orderId < 0) {
                 this.orderId = Integer.valueOf(NinjaTraderTerminal.INSTANCE.NewOrderId());
             } else {
@@ -60,62 +60,62 @@ public class Order {
             this.command = command.toString();
         }
 
-        public OrderBuilder account(String val) {
+        protected OrderBuilder account(String val) {
             account = val;
             return this;
         }
 
-        public OrderBuilder action(Action val) {
+        protected OrderBuilder action(Action val) {
             action = val.toString();
             return this;
         }
 
-        public OrderBuilder instrument(String val) {
+        protected OrderBuilder instrument(String val) {
             instrument = val;
             return this;
         }
 
-        public OrderBuilder quantity(int val) {
+        protected OrderBuilder quantity(int val) {
             quantity = val;
             return this;
         }
 
-        public OrderBuilder orderType(OrderType val) {
+        protected OrderBuilder orderType(OrderType val) {
             orderType = val.toString();
             return this;
         }
 
-        public OrderBuilder limitPrice(double val) {
+        protected OrderBuilder limitPrice(double val) {
             limitPrice = val;
             return this;
         }
 
-        public OrderBuilder stopPrice(double val) {
+        protected OrderBuilder stopPrice(double val) {
             stopPrice = val;
             return this;
         }
 
-        public OrderBuilder timeInForce(TIF val) {
+        protected OrderBuilder timeInForce(TIF val) {
             timeInForce = val.toString();
             return this;
         }
 
-        public OrderBuilder oco(String val) {
+        protected OrderBuilder oco(String val) {
             oco = val;
             return this;
         }
 
-        public OrderBuilder strategy(String val) {
+        protected OrderBuilder strategy(String val) {
             strategy = val;
             return this;
         }
 
-        public OrderBuilder strategyId(String val) {
+        protected OrderBuilder strategyId(String val) {
             strategyId = val;
             return this;
         }
 
-        public Order build() {
+        protected Order build() {
             return new Order(this);
         }
     }
@@ -136,7 +136,7 @@ public class Order {
         String orderIdTemp = String.valueOf(orderId);
         return this.quantity - NinjaTraderTerminal.INSTANCE.Filled(orderIdTemp);
     }
-    public enum Command {
+    protected enum Command {
         CANCEL,
         CANCELALLORDERS,
         CHANGE,
@@ -148,13 +148,13 @@ public class Order {
         NO_COMMAND
     }
 
-    public enum Action {
+    protected enum Action {
         BUY,
         SELL,
         NO_ACTION
     }
 
-    public enum OrderType {
+    protected enum OrderType {
         MARKET,
         LIMIT,
         //STOP,
@@ -162,7 +162,7 @@ public class Order {
         NO_TYPE
     }
 
-    public enum TIF {
+    protected enum TIF {
         DAY,
         GTC,
         NO_TIF
