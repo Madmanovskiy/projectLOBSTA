@@ -65,6 +65,10 @@ public class Futures {
         return stockExCommission;
     }
 
+    public double getAllCommissionCosts(){
+        return stockExCommission + brokerageCommission;
+    }
+
     public String getTicker() {
         return ticker;
     }
