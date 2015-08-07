@@ -9,29 +9,29 @@ public class Position {
     private final Futures futures;
     private final String account;
 
-    public Position(int id, String account, Futures futures) {
+    protected Position(int id, String account, Futures futures) {
         this.id = id;
         this.account = account;
         this.futures = futures;
     }
 
-    public double getBuyPower() {
+    protected double getBuyPower() {
         return NinjaTraderTerminal.INSTANCE.BuyingPower(account);
     }
 
-    public double getCashValue() {
+    protected double getCashValue() {
         return NinjaTraderTerminal.INSTANCE.CashValue(account);
     }
 
-    public int getCurrentContractsAmount() {
+    protected int getCurrentContractsAmount() {
         return NinjaTraderTerminal.INSTANCE.MarketPosition(futures.getTicker(), account);
     }
 
-    public double getProfitLoss() {
+    protected double getProfitLoss() {
         return NinjaTraderTerminal.INSTANCE.RealizedPnL(account);
     }
 
-    public Futures getFutures() {
+    protected Futures getFutures() {
         return futures;
     }
 }
